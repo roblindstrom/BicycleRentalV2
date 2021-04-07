@@ -1,0 +1,12 @@
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\bin\Debug\netcoreapp3.1\BicycleRental.Domain.deps.json
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\bin\Debug\netcoreapp3.1\BicycleRental.Domain.runtimeconfig.json
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\bin\Debug\netcoreapp3.1\BicycleRental.Domain.runtimeconfig.dev.json
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\bin\Debug\netcoreapp3.1\BicycleRental.Domain.dll
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\bin\Debug\netcoreapp3.1\BicycleRental.Domain.pdb
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.AssemblyInfoInputs.cache
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.AssemblyInfo.cs
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.dll
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.pdb
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.genruntimeconfig.cache
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Domain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.csprojAssemblyReference.cache

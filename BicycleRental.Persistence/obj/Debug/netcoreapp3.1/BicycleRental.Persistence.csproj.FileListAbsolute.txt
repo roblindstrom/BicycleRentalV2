@@ -1,0 +1,15 @@
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\bin\Debug\netcoreapp3.1\BicycleRental.Persistence.deps.json
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\bin\Debug\netcoreapp3.1\BicycleRental.Persistence.runtimeconfig.json
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\bin\Debug\netcoreapp3.1\BicycleRental.Persistence.runtimeconfig.dev.json
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\bin\Debug\netcoreapp3.1\BicycleRental.Persistence.dll
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\bin\Debug\netcoreapp3.1\BicycleRental.Persistence.pdb
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\bin\Debug\netcoreapp3.1\BicycleRental.Domain.dll
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\bin\Debug\netcoreapp3.1\BicycleRental.Domain.pdb
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\obj\Debug\netcoreapp3.1\BicycleRental.Persistence.csprojAssemblyReference.cache
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\obj\Debug\netcoreapp3.1\BicycleRental.Persistence.AssemblyInfoInputs.cache
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\obj\Debug\netcoreapp3.1\BicycleRental.Persistence.AssemblyInfo.cs
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\obj\Debug\netcoreapp3.1\BicycleRental.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\obj\Debug\netcoreapp3.1\BicycleRental.Persistence.csproj.CopyComplete
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\obj\Debug\netcoreapp3.1\BicycleRental.Persistence.dll
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\obj\Debug\netcoreapp3.1\BicycleRental.Persistence.pdb
+C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRental.Persistence\obj\Debug\netcoreapp3.1\BicycleRental.Persistence.genruntimeconfig.cache
