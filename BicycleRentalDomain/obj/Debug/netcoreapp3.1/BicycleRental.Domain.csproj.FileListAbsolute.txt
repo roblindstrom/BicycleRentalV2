@@ -1,8 +1,0 @@
-C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRentalDomain\bin\Debug\netcoreapp3.1\BicycleRental.Domain.deps.json
-C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRentalDomain\bin\Debug\netcoreapp3.1\BicycleRental.Domain.dll
-C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRentalDomain\bin\Debug\netcoreapp3.1\BicycleRental.Domain.pdb
-C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRentalDomain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.AssemblyInfoInputs.cache
-C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRentalDomain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.AssemblyInfo.cs
-C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRentalDomain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.csproj.CoreCompileInputs.cache
-C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRentalDomain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.dll
-C:\Users\Robin\source\repos\BicycleRentalV2\BicycleRentalDomain\obj\Debug\netcoreapp3.1\BicycleRental.Domain.pdb
