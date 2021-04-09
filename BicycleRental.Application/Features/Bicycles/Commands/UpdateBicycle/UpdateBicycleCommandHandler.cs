@@ -37,6 +37,8 @@ namespace BicycleRental.Application.Features.Bicycles.Commands.UpdateBicycle
 
             bicycleToUpdate.BicycleId = request.BicycleId;
             bicycleToUpdate.PricePerDay = request.PricePerDay;
+            bicycleToUpdate.BicycleBrand = request.BicycleBrand;
+            bicycleToUpdate.BicycleSize = request.BicycleSize;
 
             await _bicycleRepository.UpdateAsync(bicycleToUpdate);
 

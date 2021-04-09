@@ -12,6 +12,11 @@ namespace BicycleRental.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Address> modelBuilder)
         {
             modelBuilder
+                .HasKey(a => a.AddressID);
+
+           
+
+            modelBuilder
                 .HasMany(a => a.CustomerAddresses)
                 .WithOne(ca => ca.Address)
                 .HasForeignKey(ca => ca.AddressID);

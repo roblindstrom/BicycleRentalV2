@@ -20,6 +20,9 @@ namespace BicycleRental.Persistence.Repositories
             return await _bicycleRentalDbContext.Set<T>().FindAsync(id);
         }
 
+        
+
+
         public async Task<IReadOnlyList<T>> ListAllAsync()
         {
             return await _bicycleRentalDbContext.Set<T>().ToListAsync();

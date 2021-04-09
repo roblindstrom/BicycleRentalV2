@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using BicycleRental.Domain.Common;
+using System.Collections.Generic;
 
 namespace BicycleRental.Domain.Entities
 {
-    public class Customer
+    public class Customer : AuditableEntity
     {
+
+
         public double CustomerID { get; set; }
 
         public string Firstname { get; set; }
@@ -15,5 +18,7 @@ namespace BicycleRental.Domain.Entities
         public ICollection<Order> Orders { get; set; }
 
         public ICollection<CustomerAddress> CustomerAddresses { get; set; }
+
+
     }
 }

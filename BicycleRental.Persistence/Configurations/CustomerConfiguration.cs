@@ -15,6 +15,10 @@ namespace BicycleRental.Persistence.Configurations
                 .HasKey(c => c.CustomerID);
 
             modelBuilder
+                .Property(c => c.CustomerID)
+                .ValueGeneratedNever();
+
+            modelBuilder
                 .HasMany(o => o.Orders)
                 .WithOne(c => c.Customer)
                 .HasForeignKey(o => o.CustomerID);
@@ -23,6 +27,8 @@ namespace BicycleRental.Persistence.Configurations
                 .HasMany(ca => ca.CustomerAddresses)
                 .WithOne(c => c.Customer)
                 .HasForeignKey(ca => ca.CustomerAddressID);
+
+           
 
                 
         }

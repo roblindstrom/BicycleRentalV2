@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BicycleRental.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/")]
     [ApiController]
     public class BicycleController : ControllerBase
     {
@@ -22,9 +22,9 @@ namespace BicycleRental.Api.Controllers
         }
 
         //[Authorize]
-        [HttpGet("all", Name = "GetAllBicycles")]
+        [HttpGet("GetAllBicycles")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<BicycleListVm>>> GetAllCategories()
+        public async Task<ActionResult<List<BicycleListVm>>> GetAllBicycles()
         {
             var dtos = await _mediator.Send(new GetBicyclesListQuery());
             return Ok(dtos);
@@ -42,24 +42,24 @@ namespace BicycleRental.Api.Controllers
         //    return Ok(dtos);
         //}
 
-        [HttpPost(Name = "AddBicycle")]
+        [HttpPost("CreateBicycle")]
         public async Task<ActionResult<CreateBicycleCommandResponse>> Create([FromBody] CreateBicycleCommand createBicycleCommand)
         {
             var response = await _mediator.Send(createBicycleCommand);
             return Ok(response);
         }
 
-        [HttpPut(Name = "UpdateBicycle")]
+        [HttpPut("UpdateBicycle")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult> Update([FromBody] UpdateBicycleCommand updateBicycleCommand)
         {
             await _mediator.Send(updateBicycleCommand);
-            return NoContent();
+            return Ok(updateBicycleCommand);
         }
 
-        [HttpDelete("{id}", Name = "DeleteBicycle")]
+        [HttpDelete("DeleteBicycle")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
@@ -67,7 +67,7 @@ namespace BicycleRental.Api.Controllers
         {
             var deleteBicycleCommand = new DeleteBicycleCommand() {BicycleID  = id };
             await _mediator.Send(deleteBicycleCommand);
-            return NoContent();
+            return Ok(deleteBicycleCommand);
         }
     }
 }

@@ -3,6 +3,7 @@
     public class OrdersListVm
     {
         public double BicycleID { get; set; }
+        public double CustomerID { get; set; }
 
     }
 }

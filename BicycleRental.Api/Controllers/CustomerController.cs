@@ -24,7 +24,7 @@ namespace BicycleRental.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet(Name = "GetAllCustomers")]
+        [HttpGet("GetAllCustomers")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<List<CustomerListVm>>> GetAllCustomers()
@@ -33,31 +33,31 @@ namespace BicycleRental.Api.Controllers
             return Ok(dtos);
         }
 
-        [HttpGet("GetCustomerById")]
+        [HttpGet("GetCustomerByIdWithAddress")]
         public async Task<ActionResult<CustomerDetailVm>> GetCustomerById(double customerID)
         {
             var getCustomerDetailQuery = new GetCustomerDetailQuery() { CustomerID = customerID};
             return Ok(await _mediator.Send(getCustomerDetailQuery));
         }
 
-        [HttpPost(Name = "AddCustomer")]
+        [HttpPost("CreateCustomer")]
         public async Task<ActionResult<CreateCustomerCommandResponse>> Create([FromBody] CreateCustomerCommand createCustomerCommand)
         {
             var response = await _mediator.Send(createCustomerCommand);
             return Ok(response);
         }
 
-        [HttpPut(Name = "UpdateCustomer")]
+        [HttpPut("UpdateCustomer")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult> Update([FromBody] UpdateCustomerCommand updateCustomerCommand)
         {
             await _mediator.Send(updateCustomerCommand);
-            return Ok();
+            return Ok(updateCustomerCommand);
         }
 
-        [HttpDelete("{id}", Name = "DeleteCustomer")]
+        [HttpDelete("DeleteCustomer")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
@@ -65,7 +65,7 @@ namespace BicycleRental.Api.Controllers
         {
             var deleteCustomerCommand = new DeleteCustomerCommand() { CustomerID = id };
             await _mediator.Send(deleteCustomerCommand);
-            return Ok();
+            return Ok(deleteCustomerCommand);
         }
 
 

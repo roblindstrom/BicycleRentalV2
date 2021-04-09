@@ -22,7 +22,7 @@ namespace BicycleRental.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet(Name = "GetAllAddresses")]
+        [HttpGet("GetAllAddresses")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<List<AddressListVm>>> GetAllEvents()
@@ -31,31 +31,31 @@ namespace BicycleRental.Api.Controllers
             return Ok(dtos);
         }
 
-        [HttpGet("{id}", Name = "GetAddressById")]
+        [HttpGet("GetAddressById")]
         public async Task<ActionResult<AddressDetailVm>> GetEventById(double id)
         {
             var getAddressDetailQuery = new GetAddressDetailQuery() { Id = id };
             return Ok(await _mediator.Send(getAddressDetailQuery));
         }
 
-        [HttpPost(Name = "AddAddress")]
+        [HttpPost("CreateAddress")]
         public async Task<ActionResult<CreateAddressCommandResponse>> Create([FromBody] CreateAddressCommand createAddressCommand)
         {
             var response = await _mediator.Send(createAddressCommand);
             return Ok(response);
         }
 
-        [HttpPut(Name = "UpdateAddress")]
+        [HttpPut("UpdateAddress")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult> Update([FromBody] UpdateAddressCommand updateAddressCommand)
         {
             await _mediator.Send(updateAddressCommand);
-            return NoContent();
+            return Ok(updateAddressCommand);
         }
 
-        [HttpDelete("{id}", Name = "DeleteAddress")]
+        [HttpDelete("DeleteAddress")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
@@ -63,7 +63,7 @@ namespace BicycleRental.Api.Controllers
         {
             var deleteAddressCommand = new DeleteAddressCommand() { AddressID = id };
             await _mediator.Send(deleteAddressCommand);
-            return NoContent();
+            return Ok(deleteAddressCommand);
         }
 
 

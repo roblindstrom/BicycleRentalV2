@@ -13,11 +13,11 @@ namespace BicycleRental.Application.Features.Orders.Queries.GetOrderDetail
     public class GetOrderDetailQueryHandler : IRequestHandler<GetOrderDetailQuery, OrderDetailVm>
     {
         private readonly IAsyncRepository<Bicycle> _bicycleRepository;
-        private readonly IAsyncRepository<Order> _orderRepository;
+        private readonly IOrderRepository _orderRepository;
         private readonly IAsyncRepository<Customer> _customerRepository;
         private readonly IMapper _mapper;
 
-        public GetOrderDetailQueryHandler(IMapper mapper, IAsyncRepository<Bicycle> bicycleRepository, IAsyncRepository<Order> orderRepository, IAsyncRepository<Customer> customerRepositor)
+        public GetOrderDetailQueryHandler(IMapper mapper, IAsyncRepository<Bicycle> bicycleRepository, IOrderRepository orderRepository, IAsyncRepository<Customer> customerRepositor)
         {
             _mapper = mapper;
             _bicycleRepository = bicycleRepository;
@@ -27,16 +27,19 @@ namespace BicycleRental.Application.Features.Orders.Queries.GetOrderDetail
 
         public async Task<OrderDetailVm> Handle(GetOrderDetailQuery request, CancellationToken cancellationToken)
         {
-            var order = await _orderRepository.GetByIdAsync(request.CustomerID);
+
+            var order = await _orderRepository.GetByCompositeKeyId(request.CustomerID, request.BicycleID);
+
+            //var customer = await _customerRepository.GetByIdAsync(order.CustomerID);
+            //var bicycle = await _bicycleRepository.GetByIdAsync(order.BicycleID);
+
+            order.Bicycle = await _bicycleRepository.GetByIdAsync(order.BicycleID);
+            order.Customer = await _customerRepository.GetByIdAsync(order.CustomerID);
+
+
             var orderDetailDTO = _mapper.Map<OrderDetailVm>(order);
-
-            var bicycle = await _bicycleRepository.GetByIdAsync(order.BicycleID);
-
-            orderDetailDTO.BicycleDto = _mapper.Map<BicycleDto>(bicycle);
-
-            var customer = await _customerRepository.GetByIdAsync(order.CustomerID);
-
-            orderDetailDTO.CustomerDto = _mapper.Map<CustomerDto>(customer);
+            orderDetailDTO.BicycleDto = _mapper.Map<BicycleDto>(order.Bicycle);
+            orderDetailDTO.CustomerDto = _mapper.Map<CustomerDto>(order.Customer);
 
             return orderDetailDTO;
         }

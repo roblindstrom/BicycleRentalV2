@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+using Newtonsoft.Json.Converters;
 
 namespace BicycleRental.Api
 {
@@ -22,8 +24,25 @@ namespace BicycleRental.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+
             AddSwagger(services);
 
+
+            //Detta visar Enums som string i Swagger
+            services
+           .AddControllersWithViews()
+            .AddNewtonsoftJson(options =>
+                   options.SerializerSettings.Converters.Add(new StringEnumConverter()));
+           
+
+            //Detta fixar referenceloop error med json, måste ha Ef 5.0
+            services.AddControllers()
+                .AddNewtonsoftJson(x => x.SerializerSettings
+                .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+
+            services.AddHealthChecks();
             services.AddRazorPages();
             services.AddApplicationServices(Configuration);
             //services.AddInfrastructureServices();
@@ -34,6 +53,9 @@ namespace BicycleRental.Api
             {
                 options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
+
+            
+           
         }
 
         private void AddSwagger(IServiceCollection services)
@@ -46,6 +68,7 @@ namespace BicycleRental.Api
                     Title = "BicycleRental API",
 
                 });
+                
 
                 //c.OperationFilter<FileResultContentTypeOperationFilter>();
                 //Inte lagt till filter ännu
@@ -91,6 +114,7 @@ namespace BicycleRental.Api
                 //Han skrev något om mappoints här
                 //endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/healthcheck");
             });
         }
     }

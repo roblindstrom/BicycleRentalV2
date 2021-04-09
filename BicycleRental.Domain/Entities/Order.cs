@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BicycleRental.Domain.Common;
+using System;
 
 namespace BicycleRental.Domain.Entities
 {
-    public class Order
+    public class Order : AuditableEntity
     {
         
         public double BicycleID { get; set; }

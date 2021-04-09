@@ -38,7 +38,12 @@ namespace BicycleRental.Application.Features.Orders.Commands.CreateOrder
             }
             if (createOrderCommandResponse.Success)
             {
-                var order = new Order() { CustomerID = request.CustomerID };
+                var order = new Order() { 
+
+                    CustomerID = request.CustomerID,
+                    BicycleID = request.BicycleID
+                    
+                };
                 order = await _orderRepository.AddAsync(order);
                 createOrderCommandResponse.OrderDto = _mapper.Map<CreateOrderDto>(order);
             }

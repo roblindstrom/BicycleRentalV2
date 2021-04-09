@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using BicycleRental.Domain.Common;
+using System.Collections.Generic;
 
 namespace BicycleRental.Domain.Entities
 {
-    public class Address
+    public class Address : AuditableEntity
     {
 
         public double AddressID { get; set; }

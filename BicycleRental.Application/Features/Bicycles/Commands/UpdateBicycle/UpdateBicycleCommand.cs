@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using BicycleRental.Domain.Entities;
+using MediatR;
 
 namespace BicycleRental.Application.Features.Bicycles.Commands.UpdateBicycle
 {
@@ -9,9 +10,9 @@ namespace BicycleRental.Application.Features.Bicycles.Commands.UpdateBicycle
         public double PricePerDay { get; set; }
 
 
-        // public BicycleBrand BicycleBrand { get; set; }
+         public BicycleBrand BicycleBrand { get; set; }
 
-        // public BicycleSize BicycleSize { get; set; }
+         public BicycleSize BicycleSize { get; set; }
 
         //No repsons set, write here if respons needed
 

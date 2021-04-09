@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BicycleRental.Application.Features.Orders.Commands.UpdateOrder
 {
-    class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand>
+    public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand>
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
@@ -22,11 +22,14 @@ namespace BicycleRental.Application.Features.Orders.Commands.UpdateOrder
         public async Task<Unit> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
         {
 
-            var orderToUpdate = await _orderRepository.GetByIdAsync(request.BicycleID);
+            var orderToUpdate = await _orderRepository.GetByCompositeKeyId(request.CustomerID, request.BicycleID);
+                
+
+           
 
             if (orderToUpdate == null)
             {
-                throw new NotFoundException(nameof(Address), request.BicycleID);
+                throw new NotFoundException(nameof(Order), request.BicycleID);
             }
 
             var validator = new UpdateOrderCommandValidator();
@@ -35,9 +38,7 @@ namespace BicycleRental.Application.Features.Orders.Commands.UpdateOrder
             if (validationResult.Errors.Count > 0)
                 throw new ValidationException(validationResult);
 
-            
-            orderToUpdate.CustomerID = request.CustomerID;
-            orderToUpdate.BicycleID = request.BicycleID;
+
             orderToUpdate.BookingStartDate = request.BookingStartDate;
             orderToUpdate.BookingEndDate = request.BookingEndDate;
 

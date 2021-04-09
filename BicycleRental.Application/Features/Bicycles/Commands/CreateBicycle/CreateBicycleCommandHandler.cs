@@ -41,7 +41,10 @@ namespace BicycleRental.Application.Features.Bicycles.Commands.CreateBicycle
             {
                 var bicycle = new Bicycle() { 
                     BicycleId = request.BicycleID,
-                    PricePerDay = request.PricePerDay
+                    PricePerDay = request.PricePerDay,
+                    BicycleBrand = request.BicycleBrand,
+                    BicycleSize = request.BicycleSize
+                    
                 
                 };
                 bicycle = await _bicycleRepository.AddAsync(bicycle);

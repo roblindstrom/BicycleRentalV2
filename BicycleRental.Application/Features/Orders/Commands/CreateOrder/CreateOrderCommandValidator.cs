@@ -2,7 +2,7 @@
 
 namespace BicycleRental.Application.Features.Orders.Commands.CreateOrder
 {
-    internal class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
+    public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
     {
         public CreateOrderCommandValidator()
         {
@@ -12,6 +12,10 @@ namespace BicycleRental.Application.Features.Orders.Commands.CreateOrder
 
             RuleFor(o => o.CustomerID)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
+                .NotNull();
+
+            RuleFor(o => o.BookingStartDate)
+                .LessThanOrEqualTo(o => o.BookingEndDate)
                 .NotNull();
         }
     }

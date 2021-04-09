@@ -1,6 +1,8 @@
-﻿namespace BicycleRental.Domain.Entities
+﻿using BicycleRental.Domain.Common;
+
+namespace BicycleRental.Domain.Entities
 {
-    public class CustomerAddress
+    public class CustomerAddress : AuditableEntity
     {
         public double CustomerAddressID { get; set; }
 

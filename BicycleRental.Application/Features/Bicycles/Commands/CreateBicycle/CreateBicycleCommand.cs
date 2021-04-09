@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using BicycleRental.Domain.Entities;
+using MediatR;
 
 namespace BicycleRental.Application.Features.Bicycles.Commands.CreateBicycle
 {
@@ -9,9 +10,9 @@ namespace BicycleRental.Application.Features.Bicycles.Commands.CreateBicycle
         public double PricePerDay { get; set; }
 
 
-        // public BicycleBrand BicycleBrand { get; set; }
+         public BicycleBrand BicycleBrand { get; set; }
 
-        // public BicycleSize BicycleSize { get; set; }
+         public BicycleSize BicycleSize { get; set; }
 
 
         

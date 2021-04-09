@@ -8,6 +8,7 @@ namespace BicycleRental.Persistence.Repositories
         public AddressRepository(BicycleRentalDbContext bicycleRentalDbContext) : base(bicycleRentalDbContext)
         {
 
+
         }
     }
 }

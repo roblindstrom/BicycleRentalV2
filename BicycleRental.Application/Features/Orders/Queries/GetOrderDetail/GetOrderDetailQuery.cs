@@ -8,5 +8,7 @@ namespace BicycleRental.Application.Features.Orders.Queries.GetOrderDetail
     public class GetOrderDetailQuery : IRequest<OrderDetailVm>
     {
         public double CustomerID { get; set; }
+
+        public double BicycleID { get; set; }
     }
 }

@@ -9,18 +9,18 @@ namespace BicycleRental.Application.Features.Orders.Commands.DeleteOrder
 {
     public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand>
     {
-        private readonly IAsyncRepository<Order> _orderRepository;
+        private readonly IOrderRepository _orderRepository;
         
 
-        public DeleteOrderCommandHandler(IAsyncRepository<Order> customerRepository)
+        public DeleteOrderCommandHandler(IOrderRepository orderRepository)
         {
             
-            _orderRepository = customerRepository;
+            _orderRepository = orderRepository;
         }
 
         public async Task<Unit> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
-            var customerToDelete = await _orderRepository.GetByIdAsync(request.BicycleID);
+            var customerToDelete = await _orderRepository.GetByCompositeKeyId(request.CustomerID, request.BicycleID);
 
             await _orderRepository.DeleteAsync(customerToDelete);
 

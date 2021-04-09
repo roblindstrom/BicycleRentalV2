@@ -1,4 +1,5 @@
 ﻿using BicycleRental.Domain.Common;
+using BicycleRental.Domain.Contracts.Testing;
 using BicycleRental.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,14 +10,13 @@ namespace BicycleRental.Persistence
 {
     public class BicycleRentalDbContext : DbContext
     {
+
         public BicycleRentalDbContext(DbContextOptions<BicycleRentalDbContext> options)
            : base(options)
         {
         }
-        public BicycleRentalDbContext()
-        {
-
-        }
+        
+        
         public DbSet<Bicycle> Bicycles { get; set; }
         public DbSet<Customer> Customers { get; set; }
 

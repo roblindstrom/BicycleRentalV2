@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BicycleRental.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,9 +12,9 @@ namespace BicycleRental.Application.Features.Orders.Queries.GetOrderDetail
         public double PricePerDay { get; set; }
 
 
-        // public BicycleBrand BicycleBrand { get; set; }
+         public BicycleBrand BicycleBrand { get; set; }
 
-        // public BicycleSize BicycleSize { get; set; }
+         public BicycleSize BicycleSize { get; set; }
 
 
     }

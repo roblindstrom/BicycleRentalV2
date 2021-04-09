@@ -2,7 +2,7 @@
 
 namespace BicycleRental.Application.Features.Addresses.Commands.CreateAddress
 {
-    internal class CreateAddressCommandValidator : AbstractValidator<CreateAddressCommand>
+    public class CreateAddressCommandValidator : AbstractValidator<CreateAddressCommand>
     {
         public CreateAddressCommandValidator()
         {
@@ -10,6 +10,11 @@ namespace BicycleRental.Application.Features.Addresses.Commands.CreateAddress
             RuleFor(c => c.AddressName)
                 .NotEmpty().WithMessage("{PropertyName} is required")
                 .NotNull();
+
+                RuleFor(c => c.AddressID)
+                .NotEqual(0);
+
+
         }
     }
 

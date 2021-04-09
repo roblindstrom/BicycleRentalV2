@@ -24,7 +24,7 @@ namespace BicycleRental.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet(Name = "GetAllOrders")]
+        [HttpGet("GetAllOrders")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<List<OrdersListVm>>> GetAllOrders()
@@ -33,39 +33,47 @@ namespace BicycleRental.Api.Controllers
             return Ok(dtos);
         }
 
-        [HttpGet("{id}", Name = "GetOrderById")]
-        public async Task<ActionResult<OrderDetailVm>> GetOrderById(double id)
+        [HttpGet("GetOrderByCustomerId")]
+        public async Task<ActionResult<OrderDetailVm>> GetOrderById(double customerId, double bicycleId)
         {
-            var getOrderDetailQuery = new GetOrderDetailQuery() {CustomerID = id };
+            var getOrderDetailQuery = new GetOrderDetailQuery() {
+
+                CustomerID = customerId,
+                BicycleID = bicycleId
+
+            };
             return Ok(await _mediator.Send(getOrderDetailQuery));
         }
 
-        [HttpPost(Name = "AddOrder")]
+        [HttpPost("CreateOrder")]
         public async Task<ActionResult<CreateOrderCommandResponse>> Create([FromBody] CreateOrderCommand createOrderCommand)
         {
             var response = await _mediator.Send(createOrderCommand);
             return Ok(response);
         }
 
-        [HttpPut(Name = "UpdateOrder")]
+        [HttpPut("UpdateOrderDates")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult> Update([FromBody] UpdateOrderCommand updateOrderCommand)
         {
             await _mediator.Send(updateOrderCommand);
-            return NoContent();
+            return Ok("Dates updated");
         }
 
-        [HttpDelete("{id}", Name = "DeleteOrder")]
+        [HttpDelete("DeleteOrder")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Delete(double id)
+        public async Task<ActionResult> Delete(double bicycleId, double customerId)
         {
-            var deleteAddressCommand = new DeleteOrderCommand() { BicycleID = id };
+            var deleteAddressCommand = new DeleteOrderCommand() { 
+                BicycleID = bicycleId,
+                CustomerID = customerId
+            };
             await _mediator.Send(deleteAddressCommand);
-            return NoContent();
+            return Ok(deleteAddressCommand);
         }
 
 

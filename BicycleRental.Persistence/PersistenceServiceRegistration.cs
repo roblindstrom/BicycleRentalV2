@@ -11,8 +11,6 @@ namespace BicycleRental.Persistence
             services.AddDbContext<BicycleRentalDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("BicycleRentalConnectionString")));
 
-
-
             return services;
         }
     }

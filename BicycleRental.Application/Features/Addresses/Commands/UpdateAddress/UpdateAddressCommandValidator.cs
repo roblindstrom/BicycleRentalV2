@@ -7,6 +7,11 @@ namespace BicycleRental.Application.Features.Addresses.Commands.UpdateAddress
 {
     public class UpdateAddressCommandValidator : AbstractValidator<UpdateAddressCommand>
     {
-
+        public UpdateAddressCommandValidator()
+        {
+            RuleFor(c => c.AddressName)
+               .NotEmpty().WithMessage("{PropertyName} is required")
+               .NotNull();
+        }
     }
 }

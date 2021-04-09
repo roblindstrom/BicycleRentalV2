@@ -1,4 +1,6 @@
-﻿namespace BicycleRental.Application.Features.Bicycles.Commands.CreateBicycle
+﻿using BicycleRental.Domain.Entities;
+
+namespace BicycleRental.Application.Features.Bicycles.Commands.CreateBicycle
 {
     public class CreateBicycleDto
     {
@@ -7,9 +9,9 @@
         public double PricePerDay { get; set; }
 
 
-        // public BicycleBrand BicycleBrand { get; set; }
+         public BicycleBrand BicycleBrand { get; set; }
 
-        // public BicycleSize BicycleSize { get; set; }
+         public BicycleSize BicycleSize { get; set; }
 
 
         

@@ -16,9 +16,9 @@ namespace BicycleRental.Application.Features.Orders.Queries.GetOrderDetail
 
         public DateTime BookingEndDate { get; set; }
 
-        public Bicycle Bicycle { get; set; }
+        //public Bicycle Bicycle { get; set; }
 
-        public Customer Customer { get; set; }
+        //public Customer Customer { get; set; }
 
         public BicycleDto BicycleDto { get; set; }
 
